@@ -23,4 +23,5 @@ To succesfully launch the application all the testing will need to pass and comp
 * References and Inspirations:
   * www.developer.mozilla.org
   * www.stackoverflow.com
+  * github.com/taylorgarnerd
 
