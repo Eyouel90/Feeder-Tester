@@ -6,6 +6,7 @@ Feeder Reader Testing Using Jasmine Project by Eyouel Bekele
 
 * [About](#about)
 * [Project Goal](#ProjectGoal)
+* [How to Open](#HowtoOpen)
 * [Credits](#credits)
 
 ## About
@@ -15,6 +16,11 @@ A web based application that reads RSS feed was developed and testing was starte
 ## Project Goal
 
 To succesfully launch the application all the testing will need to pass and complete. Using the guide of the former devloper comments, each testing was written and developed. 
+
+## How to Open
+
+To access the project, clone the repository. Under the parent folder, open the index.html file with your preferred web browser. ENJOY!
+
 
 
 ## Credits
