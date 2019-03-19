@@ -32,9 +32,9 @@ $(function() {
          * and that the URL is not empty.
          */
         it('url is defined', function(){
-            for (let url of allFeeds){
-                expect(url).toBeDefined();
-                expect(url).not.toEqual(null);
+            for (let feed of allFeeds){
+                expect(feed.url).toBeDefined();
+                expect(feed.url.length).not.toBe(0);
             };
 
         });
@@ -45,9 +45,9 @@ $(function() {
          * and that the name is not empty.
          */
         it('Name is defined', function(){
-            for (let name of allFeeds){
-                expect(name).toBeDefined();
-                expect(name).not.toEqual(null);
+            for (let feed of allFeeds){
+                expect(feed.name).toBeDefined();
+                expect(feed.name.length).not.toBe(0);
             };
 
         });
@@ -99,7 +99,8 @@ $(function() {
         });
 
         it('when loadfeed completes works there is atleast single entry', function() {
-            expect($('.entry').length).not.toBe(0);
+            let feedContainer = document.querySelector('div.feed')
+            expect(feedContainer.children.length).not.toBe(0);
         });
 
     });
@@ -113,15 +114,20 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        let newFeed, oldFeed
 
-        beforeEach(function(callback) {
-            loadFeed(0);
-            loadFeed(1, callback);  
-            lastPost = $('.entry').eq(0).html(); 
+        beforeEach(function(done) {
+            loadFeed(0, function(){
+                oldFeed=document.querySelector('div.feed').innerHTML
+                loadFeed(1, function(){
+                    newFeed=document.querySelector('div.feed').innerHTML
+                    done();
+                });  
+            });  
         });
 
         it('when loaded the content is updated', function() {
-            expect($('.entry').eq(0).html()).not.toEqual(lastPost);
+            expect(newFeed).not.toEqual(oldFeed);
         });
      
     
